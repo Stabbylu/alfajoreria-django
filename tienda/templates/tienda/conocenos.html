@@ -1,0 +1,59 @@
+{% extends 'tienda/base.html' %}
+
+{% block titulo %}
+Conócenos
+{% endblock %}
+    
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'tienda/css/conocenos.css' %}">
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="fondo"></div>
+<!-- BANNER -->
+<div class="col-12 banner-conocenos">
+    <div class="banner-content">
+        <h1>Conócenos</h1>
+    </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="row pt-5">
+    <div class="col-8 contenido d-flex align-items-center">
+        <div class="row ">
+            <div class="col-12">{{historia_p1}}</div>
+            <div class="col-12"><br></div>
+            <div class="col-12">{{historia_p2}}</div>
+        </div>
+    </div>
+    <div class="col-4 d-flex justify-content-center">
+        <img src="{% static 'tienda/img/Duena.jpeg' %}" class="img-circular" alt="">
+    </div>
+</div>
+
+
+<div class="row pt-5">
+    <div class="col-4 d-flex justify-content-center">
+        <img src="{% static 'tienda/img/cafeteria-interior.jpeg' %}" class="img-circular" alt="">
+    </div>
+    <div class="col-8 contenido d-flex align-items-center">
+        <div class="row ">
+            <div class="col-12">{{historia_p3}}</div>
+            <div class="col-12"><br></div>
+            <div class="col-12">{{historia_p4}}</div>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+    
+    
+    
+    
+          

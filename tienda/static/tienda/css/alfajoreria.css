@@ -1,0 +1,67 @@
+*{
+    color: #5A2821;
+}
+
+.bg-body-tertiary{
+    background-color: #ffe6fc !important;
+}
+
+.dropdown-menu{
+    background-color: #ffe6fc !important;
+}
+
+.contenido-principal{
+    margin-top:125px;
+}
+
+footer{
+    background-color: #ffe6fc;
+}
+
+
+.btn-primary {
+    background-color: #EB95D6;
+    border-color:  #EB95D6 ;
+}
+
+.btn-primary:hover{
+    background-color: #DE89C9;
+    border-color:  #EB95D6 ;
+}
+
+
+
+body{
+    background-image: url('../img/pipo-pattern.png');
+    background-color: #ffe6fc;
+}
+
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+.banner-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+.contenido{
+    margin-top: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.footer{
+    padding-top: 20px;
+}
+
+.pipo-logo{
+    margin-left: 2rem;
+}

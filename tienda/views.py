@@ -5,6 +5,18 @@ def index(request):
     context={}
     return render(request, 'tienda/index.html',context)
 
+def alfajores(request):
+    context={}
+    return render(request,'tienda/alfajores.html',context)
+
+def oEspeciales(request):
+    context={}
+    return render(request,'tienda/oEspeciales.html',context)
+
+def ofertas(request):
+    context={}
+    return render(request,'tienda/ofertas.html',context)
+
 def conocenos(request):
 
     historia_p1 = "Desde muy joven, Amanda, dueña de “Pipo alfajorería”, mostró un gran amor por los dulces que preparaba su abuela, en especial por los alfajores, una delicia tradicional que aprendió a hacer gracias a ella. A los 18 años y debido a dificultades económicas, Amanda decidió comenzar a vender alfajores por las calles de su ciudad."
@@ -17,3 +29,4 @@ def conocenos(request):
 def visitanos(request):
     context={}
     return render(request, 'tienda/visitanos.html',context)
+

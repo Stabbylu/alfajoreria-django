@@ -8,6 +8,7 @@
 
 .dropdown-menu{
     background-color: #ffe6fc !important;
+    --bs-dropdown-link-active-bg: #ff97ff;
 }
 
 .contenido-principal{
@@ -32,7 +33,8 @@ footer{
 
 
 body{
-    background-image: url('../img/pipo-pattern.png');
+    background-image: url('../img/pipopattern.png');
+    background-size: 7%;
     background-color: #ffe6fc;
 }
 
@@ -45,11 +47,6 @@ body{
     text-align: center;
     color: white;
     z-index: 2;
-}
-.banner-content h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    text-shadow: black 0.1em 0.1em 0.2em
 }
 
 .contenido{

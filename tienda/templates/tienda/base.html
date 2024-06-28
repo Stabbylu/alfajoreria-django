@@ -41,7 +41,7 @@
                 </div>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="#"><i class="bi bi-cart4" style="font-size: 1.5rem;"></i></a>
+                      <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalCarrito">(<span class="total-count"></span>) <i class="bi bi-cart4" style="font-size: 1.5rem;"></i></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" tooltip="Ver Perfil"><i class="bi bi-person-circle" style="font-size: 1.5rem;"></i></a>
@@ -66,56 +66,108 @@
 
         <div class="container-fluid footer">
             <footer class="py-5">
-              <div class="row">
-                <div class="col-4 col-md-2 m-3">
-                    <img src="{% static 'tienda/img/pipo-footer.png' %}" alt="logo" width="70%" height="auto">
-                </div>
-
-                <div class="col-4 col-md-2 mb-3">
-                  <h5>Tienda Online</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Alfajores</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ocasiones Especiales</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ofertas!</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-4 col-md-2 mb-3">
-                  <h5>Sitio Web</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="{% url 'index' %}" class="nav-link p-0 text-body-secondary">Inicio</a></li>
-                    <li class="nav-item mb-2"><a href="{% url 'conocenos' %}" class="nav-link p-0 text-body-secondary">Conócenos</a></li>
-                    <li class="nav-item mb-2"><a href="{% url 'visitanos' %}" class="nav-link p-0 text-body-secondary">Visitanos</a></li>
-                    <li class="nav-item mb-2"><a href="{% url 'contacto' %}" class="nav-link p-0 text-body-secondary">Contáctanos</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-md-4 offset-md-1 mb-3">
-                  <form>
-                    <h5>Suscríbete a nuestras noticias!</h5>
-                    <p>Mensualmente te entregamos nuestras novedades y exclusivas ofertas.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                      <label for="newsletter1" class="visually-hidden">Correo Electrónico</label>
-                      <input id="newsletter1" type="text" class="form-control" placeholder="Correo Electrónico">
-                      <button class="btn btn-primary" type="button">Suscribirse</button>
+                <div class="row">
+                    <div class="col-4 col-md-2 m-3">
+                        <img src="{% static 'tienda/img/pipo-footer.png' %}" alt="logo" width="70%" height="auto">
                     </div>
-                  </form>
-                </div>
-              </div>
+
+                    <div class="col-4 col-md-2 mb-3">
+                        <h5>Tienda Online</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Alfajores</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ocasiones Especiales</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ofertas!</a></li>
+                        </ul>
+                    </div>
           
-              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>© 2024 Pipo Alfajorería SPA, Todos los derechos reservados.</p>
-                <ul class="list-unstyled d-flex">
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter-x"></i></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram"></i></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook"></i></a></li>
-                </ul>
-              </div>
+                    <div class="col-4 col-md-2 mb-3">
+                        <h5>Sitio Web</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="{% url 'index' %}" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+                            <li class="nav-item mb-2"><a href="{% url 'conocenos' %}" class="nav-link p-0 text-body-secondary">Conócenos</a></li>
+                            <li class="nav-item mb-2"><a href="{% url 'visitanos' %}" class="nav-link p-0 text-body-secondary">Visitanos</a></li>
+                            <li class="nav-item mb-2"><a href="{% url 'contacto' %}" class="nav-link p-0 text-body-secondary">Contáctanos</a></li>
+                        </ul>
+                    </div>
+          
+                    <div class="col-md-4 offset-md-1 mb-3">
+                        <form>
+                            <h5>Suscríbete a nuestras noticias!</h5>
+                            <p>Mensualmente te entregamos nuestras novedades y exclusivas ofertas.</p>
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                <label for="newsletter1" class="visually-hidden">Correo Electrónico</label>
+                                <input id="newsletter1" type="text" class="form-control" placeholder="Correo Electrónico">
+                                <button class="btn btn-primary" type="button">Suscribirse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+          
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>© 2024 Pipo Alfajorería SPA, Todos los derechos reservados.</p>
+                    <ul class="list-unstyled d-flex">
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter-x"></i></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram"></i></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook"></i></a></li>
+                    </ul>
+                </div>
             </footer>
         </div>
 
+
+
+        <!-- CARRITO -->
+        <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Pipo Carrito de compras</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <table class="table table-image align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-md-2"></th>
+                                            <th scope="col" class="col-md-2">Producto</th>
+                                            <th scope="col" class="col-md-1">Precio</th>
+                                            <th scope="col" class="col-md-1">Cantidad</th>
+                                            <th scope="col" class="col-md-2">Total</th>
+                                            <th scope="col" class="col-md-1">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="show-cart">
+                                        <tr>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="button" class="limpiaCarrito btn btn-primary">Vaciar Carrito</button>
+                            <h4>Total: $<span class="precio-total total-cart text-primary"></span></h4>
+                          </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver atras</button>
+                        <button type="button" class="btn btn-primary">Ir a pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="{% static 'tienda/js/pipo-carrito.js' %}"></script>
         {% block js %}
         {% endblock %}
     </body>

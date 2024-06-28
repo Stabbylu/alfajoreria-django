@@ -65,3 +65,38 @@ body{
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active, .btn:focus-visible{
     background-color:#EB95D6;
 }
+
+.text-primary{
+    color:#ce5fb2 !important;
+}
+
+
+/* PIPO CARRITO DE COMPRMAS */
+.table-image {
+  
+    thead {
+      td, th {
+        border: 0;
+        font-size: 1rem;
+        color: #5A2821;
+      }
+    } 
+    
+    td, th {
+      vertical-align: middle;
+      text-align: center;
+      
+      &.qty {
+        max-width: 2rem;
+      }
+    }
+  }
+  
+  .precio-total {
+    margin-left: 1rem;
+  }
+  
+  .modal-footer {
+    padding-top: 0rem;
+    border-top: transparent !important;
+  }

@@ -1,0 +1,31 @@
+body{
+    background-image: url('../img/pipopattern.png');
+    background-size: 7%;
+    background-color: #ffe6fc;
+}
+
+.card-header{
+    background-color: #ffe6fc;
+}
+
+.btn-primary {
+    background-color: #EB95D6;
+    border-color:  #EB95D6 ;
+}
+
+.btn-primary:hover{
+    background-color: #DE89C9;
+    border-color:  #EB95D6 ;
+}
+
+.btn-link{
+    --bs-btn-color:#DE89C9;
+}
+
+.btn-link:hover, .btn-link:active, .btn:first-child:active{
+    color:#EB95D6;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active, .btn:focus-visible{
+    background-color:#EB95D6;
+}

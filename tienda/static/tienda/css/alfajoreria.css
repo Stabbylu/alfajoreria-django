@@ -49,11 +49,6 @@ body{
     z-index: 2;
 }
 
-.contenido{
-    margin-top: 20px;
-    text-align: justify;
-    text-justify: inter-word;
-}
 
 .footer{
     padding-top: 20px;
@@ -61,4 +56,12 @@ body{
 
 .pipo-logo{
     margin-left: 2rem;
+}
+
+.btn-link:hover, .btn-link:active, .btn:first-child:active{
+    color:#EB95D6;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active, .btn:focus-visible{
+    background-color:#EB95D6;
 }

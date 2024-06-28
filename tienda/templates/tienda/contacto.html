@@ -1,0 +1,61 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Contáctanos
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'tienda/css/contacto.css' %}">
+{% endblock %}
+
+
+{% block contenido %}
+
+<!-- BANNER -->
+<div class="col-12 banner-contacto">
+    <div class="banner-content">
+        <h1>Contáctanos</h1>
+    </div>
+</div>
+{% load crispy_forms_tags %}
+<div class="container-sm contenido">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 mb-5 mt-5">
+            <form action="" method = "post">
+                {% csrf_token %}
+                {{form | crispy}}
+                <div class="d-flex justify-content-end">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+{% if mensaje %}
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+    <div id="Toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-exclamation-lg"></i>
+        <strong class="me-auto">Notificación</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        {{mensaje}} <b><i class="bi bi-check2-circle" style="color:green"></i></b>
+      </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'tienda/js/contacto.js' %}"></script>
+{% endblock %}

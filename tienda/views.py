@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Producto
+from .forms import ContactoForm,CustomeUserCreationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def index(request):
@@ -6,7 +10,8 @@ def index(request):
     return render(request, 'tienda/index.html',context)
 
 def alfajores(request):
-    context={}
+    productos = Producto.objects.all()
+    context={"productos":productos}
     return render(request,'tienda/alfajores.html',context)
 
 def oEspeciales(request):
@@ -30,3 +35,30 @@ def visitanos(request):
     context={}
     return render(request, 'tienda/visitanos.html',context)
 
+def contacto(request):
+    context={'form': ContactoForm()}
+
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            context["mensaje"] = "Mensaje enviado exitosamente..."
+        else:
+            context["form"] = formulario
+
+    return render(request, 'tienda/contacto.html',context)
+
+def registro(request):
+    context={'form': CustomeUserCreationForm()}
+
+    if request.method == 'POST':
+        formulario = CustomeUserCreationForm(data = request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username = formulario.cleaned_data["username"], password= formulario.cleaned_data["password1"])
+            login(request,user)
+            messages.success(request, "Te has registrado correctamente!")
+            return redirect(to="index")
+        context["form"] = formulario
+
+    return render(request, 'registration/registro.html',context)

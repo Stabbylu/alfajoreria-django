@@ -17,11 +17,7 @@
 
 .banner-content h1 {
     font-size: 10rem;
-    text-shadow: #270703;
-
-}
-
-h1{
+    text-shadow: 2px 2px #270703;
     font-family: 'Chomsky', sans-serif;
 }
 

@@ -1,0 +1,33 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+            <div class="card-body">
+
+                <form action="" method="post">
+
+                    {% csfr_token %}
+                    {{ form }}
+                    <div class="d-flex justify-content-end">
+
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% end block %}
+

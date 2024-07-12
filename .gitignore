@@ -5,3 +5,8 @@ env/
 venv/
 ENV/
 myvenv/
+*.log
+*.pot
+*.pyc
+__pycache__
+myvenv/*

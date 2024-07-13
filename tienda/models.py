@@ -11,7 +11,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     descripcion = models.TextField()
-    url_imagen = models.ImageField(upload_to="productos",null=True)
+    url_imagen = models.ImageField(upload_to="productos",null=True, blank=True)
     unidades = models.IntegerField(default = 1)
     stock = models.IntegerField(default = 0)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)

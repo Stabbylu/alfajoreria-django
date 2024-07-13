@@ -1,0 +1,81 @@
+{% extends 'tienda/base-intranet.html' %}
+
+{% block js %}
+
+<script>
+    function eliminarProducto(id){
+        Swal.fire({
+            "title": "¿Está seguro?",
+            "text": "Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, Cancelar",
+            "confirmButtonText": "Si, Borrar",
+            "reverseButtons":true,
+            "confirmButtonColor": "#EB95D6"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/eliminar-producto/"+id+"/" 
+            }
+        })
+    }
+</script>
+  
+{% endblock %}
+
+{% block contenido %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'tienda/css/listar.css' %}">
+
+{% load humanize %}
+
+<br><br><br>
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de productos</h2>
+        <hr>
+        <table class="table table-striped table-hover table-responsive-sm">
+            
+            <tr>
+        
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th>Opciones</th>
+        
+            </tr>
+        
+            {% for p in productos %}
+        
+                <tr>
+        
+                    <td>{{ p.nombre | title }}</td>
+                    <td>${{ p.precio | intcomma }}</td>
+                    <td>{{ p.stock | title }}</td>
+                    <td>{{ p.categoria | title }}</td>
+                    <td>
+                        <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info-custom btn-sm">Editar</a>
+                        {% if perms.tienda.delete_producto %}
+                        <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger-custom btn-sm">Borrar</a>
+                        {% endif %}
+                    </td>
+        
+                </tr>
+        
+            {% endfor %}
+
+        </table>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="{% url 'index' %}" class="btn btn-info-custom">Volver</a>
+            <a href="{% url 'agregar_producto' %}" class="btn btn-info-custom">Agregar producto</a>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

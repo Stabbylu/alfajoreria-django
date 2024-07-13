@@ -1,0 +1,31 @@
+.btn-info-custom{
+    background-color: #EB95D6;
+    border-color:  #EB95D6 ;
+    color: white;
+}
+
+.btn-info-custom:hover, .btn-info-custom:focus, .btn-info-custom:active {
+    background-color: #BA0083;
+    border-color: #BA0083;
+    color: white;
+}
+
+.btn-danger-custom{
+    background-color: #da00a3;
+    border-color:   #da00a3;
+    color: white;
+}
+
+.btn-danger-custom:hover, .btn-danger-custom:focus, .btn-danger-custom:active {
+    background-color: #BA0083;
+    border-color: #BA0083;
+    color: white;
+}
+
+.card-header{
+    background-color: #ffe6fc;
+}
+
+*{
+    color: #5A2821;
+}

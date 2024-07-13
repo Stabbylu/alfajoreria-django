@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
-from .forms import ContactoForm,CustomeUserCreationForm
+from .forms import ContactoForm,CustomeUserCreationForm,ProductoForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required,permission_required
 
 # Create your views here.
 def index(request):
@@ -62,3 +63,55 @@ def registro(request):
         context["form"] = formulario
 
     return render(request, 'registration/registro.html',context)
+
+@permission_required('tienda.add_producto')
+def agregar_producto(request):
+
+    context={'form': ProductoForm()}
+
+    if request.method == 'POST':
+        formulario = ProductoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "¡Producto agregado correctamente!")
+            return redirect(to="listar_productos")
+        else:
+            context["form"] = formulario
+
+    return render(request, 'productos/agregar.html', context)
+
+@permission_required('tienda.view_producto')
+def listar_productos(request):
+    
+    productos = Producto.objects.all()
+
+    context={
+        'productos': productos
+    }
+
+    return render(request, 'productos/listar.html', context)
+
+@permission_required('tienda.change_producto')
+def modificar_producto(request, id):
+
+    producto = get_object_or_404(Producto, id=id)
+
+    context = {'form':ProductoForm(instance=producto)}
+
+    if request.method == 'POST':
+        formulario = ProductoForm(request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "¡Producto modificado correctamente!")
+            return redirect(to="listar_productos")
+        else:
+            context["form"] = formulario
+
+    return render(request, 'productos/modificar.html',context)
+
+@permission_required('tienda.delete_producto')
+def eliminar_producto(request, id):
+    producto = get_object_or_404(Producto, id=id)
+    producto.delete()
+    messages.success(request, "Producto eliminado")
+    return redirect(to="listar_productos")

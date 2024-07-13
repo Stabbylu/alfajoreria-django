@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tienda',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django.contrib.humanize',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -141,3 +142,7 @@ import os
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
+
+#Mensajes en otra pantalla
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
